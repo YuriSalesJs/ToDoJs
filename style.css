@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: rgba(4, 119, 4, 0.815)
+    background-color: rgba(92, 131, 92, 0.815)
 }
 
 h1 {
@@ -28,11 +28,12 @@ li {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #2eda56;
     color: white;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
+    border-radius: 20px;
 }
 
 button:hover {
