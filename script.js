@@ -7,5 +7,6 @@ function adicionar (){
     }else {
         listaTarefas.insertAdjacentHTML('beforeend', `<p>${tarefa.value}</p>`)
         listaTarefas.style.backgroundColor = 'white'
+        localStorage.setItem('tarefa.value', tarefa)
     }
 }
