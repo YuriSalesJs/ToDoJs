@@ -5,8 +5,24 @@ function adicionar (){
     if(tarefa.value == ''){
         window.alert('[Erro] adicionar uma tarefa.')
     }else {
+        let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
+
+        tarefas.push(tarefa.value)
+
+        localStorage.setItem('tarefas', JSON.stringify(tarefas))
+
         listaTarefas.insertAdjacentHTML('beforeend', `<p>${tarefa.value}</p>`)
-        listaTarefas.style.backgroundColor = 'white'
-        localStorage.setItem('tarefa', tarefa.value)
+
+        tarefa.value = ''
     }
 }
+
+function carregarTarefas (){
+    let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
+
+    tarefas.forEach(function(tarefaSalva) {listaTarefas.insertAdjacentHTML('beforeend', `<p>${tarefaSalva}</p>`)
+        
+    });
+}
+
+carregarTarefas()
