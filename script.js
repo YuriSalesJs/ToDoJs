@@ -12,12 +12,11 @@ function adicionar (){
             status: 'pendente'
         }
 
-        tarefas.push(tarefa.value)
+        tarefas.push(novaTarefa)
 
         localStorage.setItem('tarefas', JSON.stringify(tarefas))
 
-       /* AQUI VAI SER A FUNÇÃO DE EXIBIR A TAREFA
-        listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefa.value}</li>`) */
+        exibirTarefa(tarefas);
 
         tarefa.value = ''
     }
@@ -25,10 +24,7 @@ function adicionar (){
 
 function carregarTarefas (){
     let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
-
-    tarefas.forEach(function(tarefaSalva) {listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefaSalva}</li>`)
-        
-    });
+    exibirTarefa(tarefas)
 }
 
 function exibirTarefa(tarefas){
@@ -37,13 +33,34 @@ function exibirTarefa(tarefas){
     tarefas.forEach((tarefa, index) => {
         listaTarefas.insertAdjacentHTML('beforeend', 
             `<div id="tarefa-${index}" style="margin-bottom: 10px;">
-                <p style="text-decoration: ${tarefa.status === 'concluída' ? 'line-through' : 'none'};">
+                <li style="text-decoration: ${tarefa.status === 'concluída' ? 'line-through' : 'none'};">
                     ${tarefa.nome}
-                </p>
+                </li>
                 <button onclick="marcarConcluida(${index})">Concluir</button>
                 <button onclick="removerTarefa(${index})">Remover</button>
             </div>`)
     })
+}
+
+function marcarConcluida(index){
+    let tarefas = JSON.parse(localStorage.getItem('tarefas') || [])
+
+    tarefas[index].status = 'concluída'
+
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+
+    exibirTarefa(tarefas)
+
+}
+
+function removerTarefa(index){
+    let tarefas = JSON.parse(localStorage.getItem('tarefas') || [])
+
+    tarefas.splice(index, 1)
+
+    localStorage.setItem('tarefas', JSON.stringify(tarefas))
+
+    exibirTarefa(tarefas)
 }
 
 carregarTarefas()
