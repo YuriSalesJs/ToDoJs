@@ -11,7 +11,7 @@ function adicionar (){
 
         localStorage.setItem('tarefas', JSON.stringify(tarefas))
 
-        listaTarefas.insertAdjacentHTML('beforeend', `<p>${tarefa.value}</p>`)
+        listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefa.value}</li>`)
 
         tarefa.value = ''
     }
