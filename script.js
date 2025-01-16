@@ -7,11 +7,17 @@ function adicionar (){
     }else {
         let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
+        let novaTarefa = {
+            nome: tarefa.value,
+            status: 'pendente'
+        }
+
         tarefas.push(tarefa.value)
 
         localStorage.setItem('tarefas', JSON.stringify(tarefas))
 
-        listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefa.value}</li>`)
+       /* AQUI VAI SER A FUNÇÃO DE EXIBIR A TAREFA
+        listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefa.value}</li>`) */
 
         tarefa.value = ''
     }
