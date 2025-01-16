@@ -34,3 +34,10 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+input {
+    padding: 10px;
+    background-color: #f4f4f4;
+    margin: 5px 5px;
+    border-radius: 4px;
+}

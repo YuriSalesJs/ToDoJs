@@ -20,7 +20,7 @@ function adicionar (){
 function carregarTarefas (){
     let tarefas = JSON.parse(localStorage.getItem('tarefas')) || []
 
-    tarefas.forEach(function(tarefaSalva) {listaTarefas.insertAdjacentHTML('beforeend', `<p>${tarefaSalva}</p>`)
+    tarefas.forEach(function(tarefaSalva) {listaTarefas.insertAdjacentHTML('beforeend', `<li>${tarefaSalva}</li>`)
         
     });
 }
