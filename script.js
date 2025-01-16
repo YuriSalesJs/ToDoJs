@@ -31,4 +31,19 @@ function carregarTarefas (){
     });
 }
 
+function exibirTarefa(tarefas){
+    listaTarefas.innerHTML = ''
+
+    tarefas.forEach((tarefa, index) => {
+        listaTarefas.insertAdjacentHTML('beforeend', 
+            `<div id="tarefa-${index}" style="margin-bottom: 10px;">
+                <p style="text-decoration: ${tarefa.status === 'concluída' ? 'line-through' : 'none'};">
+                    ${tarefa.nome}
+                </p>
+                <button onclick="marcarConcluida(${index})">Concluir</button>
+                <button onclick="removerTarefa(${index})">Remover</button>
+            </div>`)
+    })
+}
+
 carregarTarefas()
