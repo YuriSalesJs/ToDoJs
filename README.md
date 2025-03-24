@@ -1,4 +1,4 @@
-Lista de Tarefas
+## Lista de Tarefas
 
 Um aplicativo web simples para gerenciar suas tarefas diárias, permitindo adicionar, marcar como concluídas e remover tarefas. As tarefas são salvas no localStorage do navegador para persistência entre sessões.
 
